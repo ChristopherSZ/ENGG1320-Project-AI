@@ -1,0 +1,5 @@
+wordninja==2.0.0
+scikit-learn==0.22.2
+lime==0.2.0
+tensorflow==2.0.0
+sacred~=0.8.1
