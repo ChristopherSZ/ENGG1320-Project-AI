@@ -20,8 +20,8 @@ def base_config():
     tf.random.set_seed(RAND_SEED)
 
     ##### Data #####
-    # CATEGORIES_TO_USE = ['Adult', 'Computers', 'Recreation', 'Science']
-    categories_to_use = ['left', 'center', 'right']
+    # CATEGORIES_TO_USE = ['left', 'central', 'right']
+    categories_to_use = ['left', 'central', 'right']
     n_classes = len(categories_to_use)  # Number of classes to predict
     # Size of training dataset
     train_size = 0.8
