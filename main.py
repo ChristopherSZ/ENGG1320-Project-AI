@@ -21,7 +21,7 @@ def base_config():
 
     ##### Data #####
     # CATEGORIES_TO_USE = ['Adult', 'Computers', 'Recreation', 'Science']
-    categories_to_use = ['Left', 'Center', 'Right']
+    categories_to_use = ['left', 'center', 'right']
     n_classes = len(categories_to_use)  # Number of classes to predict
     # Size of training dataset
     train_size = 0.8
