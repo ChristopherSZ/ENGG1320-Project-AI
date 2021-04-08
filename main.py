@@ -46,7 +46,7 @@ def base_config():
 
 def load_data(data_dir, train_size):
     # Path to data file
-    data_path = os.path.join(data_dir, "URL Classification.csv")
+    data_path = os.path.join(data_dir, "URL_Classification.csv")
 
     # Load data into pandas DataFrame
     data_df = pd.read_csv(data_path, header=None)
