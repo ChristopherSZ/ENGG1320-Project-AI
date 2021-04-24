@@ -23,38 +23,11 @@ def preprocess_data(
         return_processors=False,
         
     ) :
-    """ Process URLs and Categorical Labels
-    Steps:
-    1. Process URLs
-      1.1. Tokenization
-      1.2. Zero-padding
-    2. Process Labels
-      2.1. One-hot encoding
 
-    Arguments:
-    - X (np.ndarray): Input URLs (str), shape = (n_urls, 1)
-    - y (np.ndarray): Target categories (str), shape = (n_urls, 1)
-    - tokenizer (keras_preprocessing.text.Tokenizer): Tokenizer object for 
-         tokenization of URLs
-    - vocab_size (int): Size of vocabulary to use by tokenizer
-    - max_len (int): Max length of tokens after (zero-)padding
-    - encoder (sklearn.preprocessing.OneHotEncoder): Encoder object 
-         for converting labels to one-hot encoding
-    - return_processors (bool): If True, return tokenizer and encoder used in this 
-        function
-    """
-
-    ##### Process URLs #####
-    # Convert url string to word tokens
-    # Processing included:
-    # - Split joined words (e.g. aiapplication -> "ai", "application")
-    # - Remove special characters (e.g. ai-application -> "ai", "application")
     X = [ wordninja.split(str(x)) for x in X ]
 
     # Convert list of tokens into one long string with tokens separated by spaces " ".
     # e.g. ["t1", "t2", "t3"] ==> "t1 t2 t3".
-    # This conversion is performed so that we can use tensorflow.keras.preprocessing.text.Tokenizer
-    # to convert space-separated strings into list of integer tokens easily.
     X = [ " ".join(tokens) for tokens in X ]
 
     # Convert word tokens to integer tokens
