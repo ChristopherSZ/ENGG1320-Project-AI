@@ -24,10 +24,12 @@ def preprocess_data(
         
     ) :
 
+    # Recognize each word and split them.
+    # e.g. "infococoonbreaker" -> ["info", "cocoon", "breaker"]
     X = [ wordninja.split(str(x)) for x in X ]
 
     # Convert list of tokens into one long string with tokens separated by spaces " ".
-    # e.g. ["t1", "t2", "t3"] ==> "t1 t2 t3".
+    # e.g. ["info", "cocoon", "breaker"] ==> "info cocoon breaker".
     X = [ " ".join(tokens) for tokens in X ]
 
     # Convert word tokens to integer tokens
@@ -35,10 +37,13 @@ def preprocess_data(
     if tokenizer is None :
         tokenizer = Tokenizer(oov_token=True, num_words=VOCAB_SIZE)
         tokenizer.fit_on_texts(X)
+
     # Transform texts to index sequences
+    # E.g. "info cocoon breaker" -> [156, 243, 33]
     X = tokenizer.texts_to_sequences(X)
 
     # Zero-padding
+    # E.g. [156, 243, 33] -> [156, 243, 33, 0, 0, 0, 0, 0]
     X = pad_sequences(X, maxlen=max_len, padding='post')
 
     # Return if no label to process
@@ -51,6 +56,11 @@ def preprocess_data(
             return X, tokenizer, encoder
 
     ##### Process Labels #####
+
+    # After preprocessing,
+    # central: [1, 0, 0]
+    # left: [0, 1, 0]
+    # right: [0, 0, 1]
     
     # Use one-hot encoding to convert string classes to one-hot encoding vectors.
 
