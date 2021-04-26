@@ -11,6 +11,7 @@ from sklearn.preprocessing import OneHotEncoder
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
+# The code below are adapted from COMP3359 AI Applications course material.
 
 # Default Settings
 VOCAB_SIZE = 10000  # Vocab size of tokenizer
